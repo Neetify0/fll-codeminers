@@ -50,6 +50,10 @@ async def turn(degrees, direction):
     return
 
 async def main():
+    await motor.run_for_degrees(attachment_right, 200, 300)
+    await motor.run_for_degrees(attachment_right, -200, 300)
+    await motor.run_for_degrees(attachment_right, 200, 300)
+    await motor.run_for_degrees(attachment_right, -200, 300)
     #await mission6()
     #await mission5()
     #await mission10()
@@ -58,9 +62,8 @@ async def main():
     #await mission9_2()
     #await mission10_2()
     #await mission13()
-    await mission11()
-
-
+    #await mission11()
+    #await mission1()
 
 async def mission6():
     await motor.run_for_degrees(attachment_right, 200, 660)
@@ -144,5 +147,16 @@ async def mission11():
     await turn(150,"left")
     await move_distance(19, 1, 660)
     await turn(67, "left")
+
+async def mission1():
+    await motor.run_for_degrees(attachment_left, 300, 600)
+    await move_distance(65, 1, 660)
+    await turn(85, "left")
+    await motor.run_for_degrees(attachment_left, -250, 600)
+    await turn(10, "left")
+    await turn(10, "left")
+    await turn(10, "right")
+    await turn(10, "right")
+    await motor.run_for_degrees(attachment_left, 200, 300)
 
 runloop.run(main())
