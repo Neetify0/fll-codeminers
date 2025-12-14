@@ -50,10 +50,10 @@ async def turn(degrees, direction):
     return
 
 async def main():
-    await motor.run_for_degrees(attachment_right, 200, 300)
-    await motor.run_for_degrees(attachment_right, -200, 300)
-    await motor.run_for_degrees(attachment_right, 200, 300)
-    await motor.run_for_degrees(attachment_right, -200, 300)
+    #await motor.run_for_degrees(attachment_right, 200, 300)
+    #await motor.run_for_degrees(attachment_right, -200, 300)
+    #await motor.run_for_degrees(attachment_right, 200, 300)
+    #await motor.run_for_degrees(attachment_right, -200, 300)
     #await mission6()
     #await mission5()
     #await mission10()
@@ -63,7 +63,7 @@ async def main():
     #await mission10_2()
     #await mission13()
     #await mission11()
-    #await mission1()
+    await mission1()
 
 async def mission6():
     await motor.run_for_degrees(attachment_right, 200, 660)
@@ -126,7 +126,7 @@ async def mission10_2():
     #await turn(90, -1)
     await move_distance(3, 1, 560)
     await turn(42, "right")
-    await motor.run_for_degrees(attachment_left, turn_down, turn_velocity)    
+    await motor.run_for_degrees(attachment_left, turn_down, turn_velocity)
     await move_distance(37, 1, 600)
     await motor.run_for_degrees(attachment_left, turn_up, turn_velocity)
     await turn(40, "left")
@@ -149,14 +149,10 @@ async def mission11():
     await turn(67, "left")
 
 async def mission1():
-    await motor.run_for_degrees(attachment_left, 300, 600)
-    await move_distance(65, 1, 660)
-    await turn(85, "left")
-    await motor.run_for_degrees(attachment_left, -250, 600)
-    await turn(10, "left")
-    await turn(10, "left")
-    await turn(10, "right")
-    await turn(10, "right")
-    await motor.run_for_degrees(attachment_left, 200, 300)
-
+    await move_distance(40, 1, 660)
+    await motor.run_for_degrees(attachment_left, 200, -500)
+    await move_distance(4, -2, 300)
+    await motor.run_for_degrees(attachment_left, 80, 500)
+    await move_distance(3, 1, 300)  
+    await motor.run_for_degrees(attachment_left, 80, -500)
 runloop.run(main())
