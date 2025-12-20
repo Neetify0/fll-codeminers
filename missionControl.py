@@ -172,13 +172,13 @@ async def mission12():
     await move_distance(30, 1, 660)
 
 async def mission2():
-    await motor.run_for_degrees(attachment_right, 167, 100)
+    await motor.run_for_degrees(attachment_right, 96, 75)
     await move_distance(58, 1, 700)
     await turn(19, "left")
     await move_distance(8, 1, 700)
-    await motor.run_for_degrees(attachment_right, -167, 200)
+    await motor.run_for_degrees(attachment_right, -180, 350)
     await move_distance(8, 1, 700)
-    #await motor_pair.move_for_degrees(motor_pair.PAIR_1, 70, 0, velocity=-460)
-    #await turn(90, "right")
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 70, 0, velocity=-460)
+    await turn(90, "right")
 
 runloop.run(main())
