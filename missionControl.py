@@ -67,11 +67,11 @@ async def main():
     # await mission5()
     # await mission10()
     # await mission9()
-        # 8
-    #await mission8()
-        # 9_2 10_2 13
+        # 8 9_2
+    await mission8()
     await mission9_2()
-    await mission10_2()
+        # 10_2 13
+    #await mission10_2()
     #await mission13()
         # 11 wip
     # await mission11()
@@ -107,10 +107,9 @@ async def mission9():
 
 async def mission8():
     # await motor.run_for_degrees(attachment_right, -200, 700)
-    turn_down = 220
-    turn_velocity = 225
+    turn_down = 150
+    turn_velocity = 150
     await move_distance(36, 1, 660)
-    await motor.run_for_degrees(attachment_right, turn_down, turn_velocity)
     await motor.run_for_degrees(attachment_right, -1*turn_down, 350)
     await motor.run_for_degrees(attachment_right, turn_down, turn_velocity)
     await motor.run_for_degrees(attachment_right, -1*turn_down, 350)
@@ -118,15 +117,30 @@ async def mission8():
     await motor.run_for_degrees(attachment_right, -1*turn_down, 350)
     await motor.run_for_degrees(attachment_right, turn_down, turn_velocity)
     await motor.run_for_degrees(attachment_right, -1*turn_down, 350)
-    await move_distance(2, -1, 400)
+    await motor.run_for_degrees(attachment_right, 1*turn_down, 350)
 
 async def mission9_2():
+    await move_distance(2, -1, 400)
     await turn(45, "left")
-    await motor.run_for_degrees(attachment_left, -200, 500)
-    await move_distance(7, 1, 560)
-    await turn(150, "left")
-    await turn(42, "right")
-    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 500, 0, velocity=460)
+    await motor.run_for_degrees(attachment_left, 150, 300) # down
+    await move_distance(8, 1, 300)
+    await turn(65, "left")
+    await move_distance(20, 1, 300)
+    await turn(80, "right")
+    await motor.run_for_degrees(attachment_left, -150, 300) # down
+    await move_distance(2, 1, 300)
+    await motor.run_for_degrees(attachment_left, 150, 300) # up
+    await move_distance(10, -1, 300)
+    # await motor.run_for_degrees(attachment_left, -200, 300) # up
+    # await move_distance(7, 1, 560)
+    # await turn(45, "left") #go left
+    # await move_distance(5, 1, 560) #forward
+    # await turn(45, "left") #go left
+    # await motor.run_for_degrees(attachment_left, 200, 200)#put down
+    # await motor.run_for_degrees(attachment_left, -200, 200)#put up
+    # await move_distance(6, 1, 560) #forward
+    # await turn(25, "right") # turn right
+    # await motor.run_for_degrees(attachment_left, 200, 200)#put down
 
 async def mission10_2():
     turn_down = -240
