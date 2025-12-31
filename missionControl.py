@@ -62,10 +62,10 @@ async def turn(degrees, direction, velocity=200):
 
 async def main():
         # 6 5 10 9
-    await mission6()
-    await mission5()
-    await mission10()
-    await mission9()
+    # await mission6()
+    # await mission5()
+    # await mission10()
+    # await mission9()
         # 8 9_2 10_2
     # await mission8()
     # await mission9_2()
@@ -75,7 +75,7 @@ async def main():
         # 12
     #await mission12()
         # 1 and 2
-    #await mission1and2()
+    await mission1and2()
 
 async def mission6():
     await motor.run_for_degrees(attachment_right, 135, 300)
