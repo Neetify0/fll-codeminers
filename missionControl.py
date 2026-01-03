@@ -173,24 +173,37 @@ async def mission11():
     await turn(67, "left")
 
 async def mission1and2():
-    await motor.run_for_degrees(attachment_right, -81, 100) #down
+    await motor.run_for_degrees(attachment_left, -98, 150)#up
     await move_distance(55, 1, 600)
     await turn(33, "left")
     await move_distance(21, 1, 300)
-    await move_distance(21, -1, 300)
-    await turn(42, "left")
+    await move_distance(20, -1, 300)
+    await turn(43, "left")
     await move_distance(5, 1, 100)
-    await turn(9, "left")
-    await turn(11, "right")
+    await turn(9, "left", velocity=250)
+    await turn(13, "right", velocity=250)
     await turn(3, "left")
-    await motor.run_for_degrees(attachment_right, 60, 200) #pick up
+    await motor.run_for_degrees(attachment_right, 25, 175) #pick up
     await turn(51, "right")
-    await motor.run_for_degrees(attachment_right, -70, 100)#down
-    await move_distance(14, 1, 200)
-    await motor.run_for_degrees(attachment_right, 260, 200)
+    await motor.run_for_degrees(attachment_right, -70, 150)#down
+    await move_distance(15, 1, 200)
+    await motor.run_for_degrees(attachment_right, 155, 200)#up
     await move_distance(2,-1,100)
-    await turn(20, "right"),
-    await move_distance(65,-1,1000)
+        # await turn(20, "right"), old
+        # await move_distance(65,-1,1000) old
+    await turn(100, "right"),
+    await motor.run_for_degrees(attachment_left, 100, 140)#down
+    await move_distance(21,1,500)
+    # WIP
+    await motor.run_for_degrees(attachment_left, 300, 150)#up
+    await runloop.sleep_ms(1000)
+    await motor.run_for_degrees(attachment_left, -275, 150)#down
+    await motor.run_for_degrees(attachment_left, 105, 150)#down
+    await turn(48, "right"),
+    await move_distance(8,1,200)
+    await motor.run_for_degrees(attachment_left, -105, 150)#up
+    await motor.run_for_degrees(attachment_right, -90, 300)#down
+    await move_distance(20,-1,300)
 
 async def mission12():
     await move_distance(46, 1, 500) #move forward
